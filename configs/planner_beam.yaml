@@ -1,0 +1,9 @@
+# Beam-search-only planner configuration
+backend:
+  kind: mock
+  skill: 0.7
+planner:
+  kind: beam
+  beam_width: 8
+  depth: 6
+  survival_weight: 0.5

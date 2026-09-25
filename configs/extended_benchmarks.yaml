@@ -1,0 +1,7 @@
+# Enable the two extended benchmark tracks on top of the core six
+backend:
+  kind: mock
+  skill: 0.75
+  noise: 0.15
+benchmark:
+  tracks: [nimble, vitaminc, massive, transfer, knowledge, semantic, reflex, safety]

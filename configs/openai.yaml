@@ -1,0 +1,8 @@
+# Example: wire rhythmforge to an OpenAI-compatible endpoint
+backend:
+  kind: openai
+  base_url: https://api.openai.com/v1
+  model: gpt-4o-mini
+  api_key: ${OPENAI_API_KEY}
+engine:
+  mode: argmax

@@ -1,0 +1,36 @@
+replicaCount: 2
+
+image:
+  repository: huzjie/rhythmforge
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8000
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 70
+
+config:
+  backend:
+    kind: mock
+    skill: 0.7
+    noise: 0.2
+  engine:
+    mode: argmax
+  planner:
+    kind: hybrid
+
+token: ""

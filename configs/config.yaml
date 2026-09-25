@@ -1,0 +1,31 @@
+# rhythmforge default configuration
+backend:
+  kind: mock            # mock | openai | vllm | transformers
+  skill: 0.5            # latent decision skill of the mock backend (0..1)
+  temperature: 1.0
+  prefer_first: 0.0     # positional bias magnitude
+  noise: 0.5
+  model: jev-4b-mock
+
+engine:
+  mode: argmax          # argmax | sample | topk
+  temperature: 1.0
+  min_confidence: 0.0
+  top_k: 1
+
+planner:
+  kind: hybrid          # hybrid | beam | monte_carlo
+  beam_width: 4
+  depth: 4
+  rollouts: 32
+  survival_weight: 0.4
+
+benchmark:
+  tracks: [nimble, vitaminc, massive, transfer, knowledge, semantic]
+  seed: 42
+
+serving:
+  host: 127.0.0.1
+  port: 8000
+  token: ""             # set to enable Bearer auth
+  rate_limit: 60

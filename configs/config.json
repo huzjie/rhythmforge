@@ -1,0 +1,7 @@
+{
+  "backend": {"kind": "mock", "skill": 0.62, "temperature": 1.0, "prefer_first": 0.0, "noise": 0.3, "model": "jev-4b-mock"},
+  "engine": {"mode": "argmax", "temperature": 1.0, "min_confidence": 0.0, "top_k": 1},
+  "planner": {"kind": "hybrid", "beam_width": 4, "depth": 4, "rollouts": 32, "survival_weight": 0.4},
+  "benchmark": {"tracks": ["nimble", "vitaminc", "massive", "transfer", "knowledge", "semantic"], "seed": 42},
+  "serving": {"host": "127.0.0.1", "port": 8000, "token": "", "rate_limit": 60}
+}

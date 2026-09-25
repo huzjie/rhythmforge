@@ -1,0 +1,10 @@
+services:
+  rhythmforge:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - RHYTHMFORGE_TOKEN=
+    restart: unless-stopped

@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rhythmforge
+  namespace: rhythmforge
+  labels:
+    app: rhythmforge
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rhythmforge
+  template:
+    metadata:
+      labels:
+        app: rhythmforge
+    spec:
+      containers:
+        - name: rhythmforge
+          image: huzjie/rhythmforge:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: RHYTHMFORGE_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: rhythmforge-secret
+                  key: token
+                  optional: true
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 1000m
+              memory: 512Mi

@@ -1,0 +1,8 @@
+# Example: wire rhythmforge to a local vLLM server
+backend:
+  kind: vllm
+  base_url: http://127.0.0.1:8000/v1
+  model: tokenrhythm/NeoHorse-Jev-4B
+engine:
+  mode: sample
+  temperature: 0.8

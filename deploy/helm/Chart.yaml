@@ -1,0 +1,6 @@
+apiVersion: v2
+name: rhythmforge
+description: Realtime Decision Engine & Lookahead Safety Planner
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

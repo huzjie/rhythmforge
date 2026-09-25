@@ -1,0 +1,9 @@
+# A higher-skill mock configuration for demos
+backend:
+  kind: mock
+  skill: 0.85
+  noise: 0.15
+planner:
+  kind: beam
+  beam_width: 6
+  depth: 5
